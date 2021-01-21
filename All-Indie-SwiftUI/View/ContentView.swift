@@ -9,13 +9,22 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack{
+            Text("Scroll or not?").font(.largeTitle)
+            ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: true){
+                Image("capa").resizable().frame(height: 350, alignment: .center)
+                Image("capa").resizable().frame(height: 350, alignment: .center)
+                Image("capa").resizable().frame(height: 350, alignment: .center)
+                Image("capa").resizable().frame(height: 350, alignment: .center)
+                Image("capa").resizable().frame(height: 350, alignment: .center)
+                Image("capa").resizable().frame(height: 350, alignment: .center)
+            }
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().previewDevice(PreviewDevice(rawValue: "iPhone 7"))
+        ContentView().previewDevice(PreviewDevice(rawValue: "iPhone 11"))
     }
 }
