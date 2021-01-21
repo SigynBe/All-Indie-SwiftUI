@@ -16,6 +16,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().previewDevice(PreviewDevice(rawValue: "iphone 11"))
+        ContentView().previewDevice(PreviewDevice(rawValue: "iPhone 7"))
     }
 }
