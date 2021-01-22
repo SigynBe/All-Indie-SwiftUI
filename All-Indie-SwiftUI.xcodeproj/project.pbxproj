@@ -16,6 +16,7 @@
 		6480037425B5C8AB007585FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6480037225B5C8AB007585FB /* LaunchScreen.storyboard */; };
 		6480037F25B5C8AD007585FB /* All_Indie_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6480037E25B5C8AD007585FB /* All_Indie_SwiftUITests.swift */; };
 		6480038A25B5C8AD007585FB /* All_Indie_SwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6480038925B5C8AD007585FB /* All_Indie_SwiftUIUITests.swift */; };
+		D63D286D25BB23D200D889CE /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63D286C25BB23D200D889CE /* CustomView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		6480038525B5C8AD007585FB /* All-Indie-SwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "All-Indie-SwiftUIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6480038925B5C8AD007585FB /* All_Indie_SwiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = All_Indie_SwiftUIUITests.swift; sourceTree = "<group>"; };
 		6480038B25B5C8AD007585FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D63D286C25BB23D200D889CE /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				6480036825B5C8A4007585FB /* ContentView.swift */,
+				D63D286C25BB23D200D889CE /* CustomView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D63D286D25BB23D200D889CE /* CustomView.swift in Sources */,
 				6480036525B5C8A4007585FB /* AppDelegate.swift in Sources */,
 				6480036C25B5C8A4007585FB /* All_Indie_SwiftUI.xcdatamodeld in Sources */,
 				6480036725B5C8A4007585FB /* SceneDelegate.swift in Sources */,
