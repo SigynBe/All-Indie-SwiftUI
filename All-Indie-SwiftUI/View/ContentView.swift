@@ -10,14 +10,24 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack{
+            HStack{
+                VStack(alignment: .leading){
+                    Image("hoje")
+                }
+                
+                Spacer()
+                
+                Image(systemName: "bell.fill").font(.system(size: 30))
+            }.padding()
+            
             Text("Scroll or not?").font(.largeTitle)
             ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: true){
-                Image("capa").resizable().frame(height: 350, alignment: .center)
-                Image("capa").resizable().frame(height: 350, alignment: .center)
-                Image("capa").resizable().frame(height: 350, alignment: .center)
-                Image("capa").resizable().frame(height: 350, alignment: .center)
-                Image("capa").resizable().frame(height: 350, alignment: .center)
-                Image("capa").resizable().frame(height: 350, alignment: .center)
+                Image("capa").resizable().frame(height: 600, alignment: .center)
+                Image("capa").resizable().frame(height: 600, alignment: .center)
+                Image("capa").resizable().frame(height: 600, alignment: .center)
+                Image("capa").resizable().frame(height: 600, alignment: .center)
+                Image("capa").resizable().frame(height: 600, alignment: .center)
+                Image("capa").resizable().frame(height: 600, alignment: .center)
             }
         }
     }
