@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
         ZStack{
             Color(red: 1.00, green: 1.00, blue: 0.96, opacity: 1.00)
@@ -35,6 +36,7 @@ struct ContentView: View {
                 .padding(.leading)
                 .padding(.trailing)
             }
+            
         }
     }
 }
