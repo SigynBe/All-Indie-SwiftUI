@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     var body: some View {
         VStack{
             ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: true){
@@ -24,12 +25,14 @@ struct ContentView: View {
                     
                 }.padding()
                 Image("capa").resizable().frame(height: 600, alignment: .center)
+                customView()
                 Image("capa").resizable().frame(height: 600, alignment: .center)
                 Image("capa").resizable().frame(height: 600, alignment: .center)
                 Image("capa").resizable().frame(height: 600, alignment: .center)
                 Image("capa").resizable().frame(height: 600, alignment: .center)
                 Image("capa").resizable().frame(height: 600, alignment: .center)
             }
+            
         }
     }
 }
