@@ -11,31 +11,32 @@ struct ContentView: View {
     
     var body: some View {
         ZStack{
-            Color(red: 1.00, green: 1.00, blue: 0.96, opacity: 1.00)
+            Color(red: 1.00, green: 0.00, blue: 0.96, opacity: 1.00)
                 .ignoresSafeArea()
-            VStack(){
                 ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: true){
-                    HStack{
-                        VStack(alignment: .leading){
+                    VStack(spacing: 0){
+                        HStack{
                             Image("hoje")
+                            Spacer()
+                            Button(action: {print("button tapped")}) {
+                                Image(systemName:    "bell.fill").font(.system(size: 30)).foregroundColor(.black)
+                            }
                         }
                         Spacer()
-                        Button(action: {print("button tapped")}) {
-                            Image(systemName: "bell.fill").font(.system(size: 30)).foregroundColor(.black)
+                            .frame(height: 26)
+                        VStack{
+                            Image("capa")
+                                .resizable()
+                                .frame(height: 485, alignment: .center)
+                                .padding(0)
+                           
+                            CustomView()
+                                .padding(0)
                         }
-                    }.padding()
-                    VStack(spacing: 0){
-                        Image("capa")
-                            .resizable()
-                            .frame(height: 485, alignment: .center)
-                            .padding(0)
-                        CustomView().padding(0)
-                    }
-                   
-                }.padding(.bottom)
-                .padding(.leading)
-                .padding(.trailing)
-            }
+                    }.padding(.bottom)
+                    .padding(.leading)
+                    .padding(.trailing)
+                }
             
         }
     }
