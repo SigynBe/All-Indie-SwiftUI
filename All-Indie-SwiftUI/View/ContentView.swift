@@ -29,24 +29,23 @@ struct ContentView: View {
                             Image(systemName: "bell.fill").font(.system(size: 30)).foregroundColor(.black)
                         }
                     }.padding()
+                    
                     VStack(spacing: 0){
                         Image("capa1")
                             .resizable()
                             .frame(height: 485, alignment: .center)
                             .padding(0)
                         CustomView().padding(0)
-                    }
-                    
-                    
-                    List {
+                        
+                        Spacer()
+                        
                         ForEach (data) {items in
                             ForEach (0 ..< 2) {item in
                                 CollectionViewCell (data: items)
                             }
                         }
-                    }                    
-                    
-                    
+                    }
+             
                     
                 }.padding(.bottom)
                 .padding(.leading)
