@@ -37,16 +37,19 @@ struct ContentView: View {
                         
                         CustomView()
                             .padding(0)
-                    }
-                }.padding()
-                
-                List {
-                    ForEach (data) {items in
-                        ForEach (0 ..< 2) {item in
-                            CollectionViewCell (data: items)
+                        
+                        Spacer()
+                            .frame(height: 50)
+                        
+                        ForEach (data) { items in
+                            ForEach (0 ..< 2) {item in
+                                CollectionViewCell (data: items)
+                            }
                         }
+                        
                     }
                 }
+//                .padding()
                 
             }.padding(.bottom)
             .padding(.leading)
