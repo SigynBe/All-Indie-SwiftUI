@@ -16,56 +16,35 @@ struct ContentView: View {
     var body: some View {
         
         ZStack{
-            Color(red: 1.00, green: 0.00, blue: 0.96, opacity: 1.00)
+            Color(red: 1.00, green: 1.00, blue: 0.96, opacity: 1.00)
                 .ignoresSafeArea()
-                ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: true){
-                    VStack(spacing: 0){
-                        HStack{
-                            Image("hoje")
-                            Spacer()
-                            Button(action: {print("button tapped")}) {
-                                Image(systemName:    "bell.fill").font(.system(size: 30)).foregroundColor(.black)
-                            }
-                        }
+            ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: true){
+                VStack(spacing: 0){
+                    HStack{
+                        Image("hoje")
                         Spacer()
-                            .frame(height: 26)
-                        VStack{
-                            Image("capa")
-                                .resizable()
-                                .frame(height: 485, alignment: .center)
-                                .padding(0)
-                           
-                            CustomView()
-                                .padding(0)
+                        Button(action: {print("button tapped")}) {
+                            Image(systemName:    "bell.fill").font(.system(size: 30)).foregroundColor(.black)
                         }
-                    }.padding()
-                    VStack(spacing: 0){
+                    }
+                    Spacer()
+                        .frame(height: 26)
+                    VStack{
                         Image("capa1")
                             .resizable()
                             .frame(height: 485, alignment: .center)
                             .padding(0)
-                        CustomView().padding(0)
+                        
+                        CustomView()
+                            .padding(0)
                     }
-                    
-                    
-                    List {
-                        ForEach (data) {items in
-                            ForEach (0 ..< 2) {item in
-                                CollectionViewCell (data: items)
-                            }
-                        }
-                    }                    
-                    
-                    
-                    
-                }.padding(.bottom)
-                .padding(.leading)
-                .padding(.trailing)
-            }
-                    }.padding(.bottom)
-                    .padding(.leading)
-                    .padding(.trailing)
-                }
+                }.padding()
+                
+               
+                
+            }.padding(.bottom)
+            .padding(.leading)
+            .padding(.trailing)
             
             
         }
