@@ -40,7 +40,13 @@ struct ContentView: View {
                     }
                 }.padding()
                 
-               
+                List {
+                    ForEach (data) {items in
+                        ForEach (0 ..< 2) {item in
+                            CollectionViewCell (data: items)
+                        }
+                    }
+                }
                 
             }.padding(.bottom)
             .padding(.leading)
