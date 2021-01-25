@@ -26,10 +26,9 @@ struct ContentView: View {
                         Button(action: {print("button tapped")}) {
                             Image(systemName:    "bell.fill").font(.system(size: 30)).foregroundColor(.black)
                         }
-                    }
-                    Spacer()
-                        .frame(height: 26)
-                    VStack{
+                    }.padding()
+                    
+                    VStack(spacing: 0){
                         Image("capa1")
                             .resizable()
                             .frame(height: 485, alignment: .center)
@@ -41,19 +40,19 @@ struct ContentView: View {
                         Spacer()
                             .frame(height: 50)
                         
-                        ForEach (data) { items in
+                        ForEach (data) {items in
                             ForEach (0 ..< 2) {item in
                                 CollectionViewCell (data: items)
                             }
                         }
                         
                     }
-                }
-//                .padding()
-                
-            }.padding(.bottom)
-            .padding(.leading)
-            .padding(.trailing)
+             
+                    
+                }.padding(.bottom)
+                .padding(.leading)
+                .padding(.trailing)
+            }
             
             
         }

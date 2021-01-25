@@ -15,7 +15,7 @@ struct CollectionViewCell: View {
             HStack{
                 ForEach (0..<2){items in
                     Spacer()
-                    Image(self.data.imageName).resizable().aspectRatio(contentMode: .fit).frame(width: 100, height: 146).clipShape(Rectangle()).overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black,lineWidth: 2.5))
+                    Image(self.data.imageName).resizable().aspectRatio(contentMode: .fit).cornerRadius(20).frame(width: 100, height: 143).clipShape(Rectangle()).overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black,lineWidth: 2.5))
                     Spacer()
                     
                 }.padding(.bottom, 16)
