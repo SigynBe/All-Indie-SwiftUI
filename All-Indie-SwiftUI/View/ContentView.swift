@@ -18,15 +18,13 @@ struct ContentView: View {
         ZStack{
             Color(red: 1.00, green: 1.00, blue: 0.96, opacity: 1.00)
                 .ignoresSafeArea()
-            VStack(){
-                ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: true){
+            ScrollView(/*@START_MENU_TOKEN@*/.vertical/*@END_MENU_TOKEN@*/, showsIndicators: true){
+                VStack(spacing: 0){
                     HStack{
-                        VStack(alignment: .leading){
-                            Image("hoje")
-                        }
+                        Image("hoje")
                         Spacer()
                         Button(action: {print("button tapped")}) {
-                            Image(systemName: "bell.fill").font(.system(size: 30)).foregroundColor(.black)
+                            Image(systemName:    "bell.fill").font(.system(size: 30)).foregroundColor(.black)
                         }
                     }.padding()
                     
