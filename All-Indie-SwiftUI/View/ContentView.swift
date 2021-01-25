@@ -29,25 +29,29 @@ struct ContentView: View {
                     }.padding()
                     
                     VStack(spacing: 0){
-                        Image("capa1")
-                            .resizable()
-                            .frame(height: 485, alignment: .center)
-                            .padding(0)
-                        
-                        CustomView()
-                            .padding(0)
-                        
-                        Spacer()
-                            .frame(height: 50)
-                        
-                        ForEach (data) {items in
-                            ForEach (0 ..< 2) {item in
-                                CollectionViewCell (data: items)
-                            }
+                        VStack{
+                            Image("capa2")
+                                .resizable()
+                                .frame(height: 485, alignment: .center)
+                                .aspectRatio(contentMode: .fit)
+                                .padding(0)
+                            
+                            CustomView()
+                                .padding(0)
                         }
                         
                     }
-             
+                    .cornerRadius(20)
+                    .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black,lineWidth: 1.5))
+                    Spacer()
+                        .frame(height: 50)
+                    
+                    ForEach (data) {items in
+                        ForEach (0 ..< 2) {item in
+                            CollectionViewCell (data: items)
+                        }
+                    }
+                    
                     
                 }.padding(.bottom)
                 .padding(.leading)

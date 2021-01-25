@@ -59,7 +59,7 @@ struct CustomView: View {
                     Spacer()
                 }
                 Spacer()
-                    .frame(width: 20, height: 12)
+                    .frame(width: 20, height: 80)
             }
             .border(Color.black)
 
