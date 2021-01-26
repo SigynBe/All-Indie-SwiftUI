@@ -10,8 +10,8 @@ import SwiftUI
 struct ContentView: View {
     
     @State var notificationViewOpen = false
-
-     let data: [DataModel] = [
+    
+    let data: [DataModel] = [
         .init(id: "0", imageName: "capa1"),.init(id: "1", imageName: "capa2"),.init(id: "2", imageName: "capa3"),.init(id: "3", imageName: "capa4"),
     ]
     
@@ -46,7 +46,7 @@ struct ContentView: View {
                                 .resizable()
                                 .frame(height: 485, alignment: .center)
                                 .aspectRatio(contentMode: .fit)
-//                                .padding(0)
+                            //                                .padding(0)
                             Spacer()
                             
                             CustomView()
@@ -58,23 +58,18 @@ struct ContentView: View {
                     .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black,lineWidth: 1.5))
                     
                     Spacer()
-                        .frame(height: 50)
-                    
-                    
-                    HStack{
-                        Image("Salvos")
-                        
-                        Spacer()
-                        
-                    }.padding()
+                        .frame(height: 30)
                     
                     
                     
-                    Spacer()
-                        .frame(height: 50)
+                    VStack{
+                        CollectionView(data: [.init(id: "0", imageName: "capa1"),.init(id: "0", imageName: "capa1"),.init(id: "0", imageName: "capa1")
+                        ])
+                       
+                    }
                     
-                    CollectionView(data: [.init(id: "0", imageName: "capa1"),.init(id: "0", imageName: "capa1"),.init(id: "0", imageName: "capa1")
-                    ])
+                    
+                    
                 }
                 
                 
@@ -82,11 +77,11 @@ struct ContentView: View {
             .padding(.leading)
             .padding(.trailing)
         }
-    
+        
         
         
     }
-  
+    
     
 }
 
