@@ -43,27 +43,38 @@ struct ContentView: View {
                     }
                     .cornerRadius(20)
                     .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black,lineWidth: 1.5))
+                    
                     Spacer()
                         .frame(height: 50)
                     
-                    ForEach (data) {items in
-                        ForEach (0 ..< 2) {item in
-                            CollectionViewCell (data: items)
-                        }
-                    }
+                    
+                    HStack{
+                        Image("Salvos")
+                        
+                        Spacer()
+                        
+                    }.padding()
                     
                     
-                }.padding(.bottom)
-                .padding(.leading)
-                .padding(.trailing)
-            }
-            
-            
+                    
+                    Spacer()
+                        .frame(height: 50)
+                    
+                    CollectionView(data: [.init(id: "0", imageName: "capa1"),.init(id: "0", imageName: "capa1"),.init(id: "0", imageName: "capa1")
+                    ])
+                }
+                
+                
+            }.padding(.bottom)
+            .padding(.leading)
+            .padding(.trailing)
         }
+        
         
     }
     
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
