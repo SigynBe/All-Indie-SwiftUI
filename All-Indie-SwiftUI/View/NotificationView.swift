@@ -17,6 +17,7 @@ struct NotificationView: View {
                     
                 }
                 //Text()
+                
                 //PickerView
             }
         }
