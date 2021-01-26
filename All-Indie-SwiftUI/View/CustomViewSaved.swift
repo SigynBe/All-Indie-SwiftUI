@@ -20,7 +20,7 @@ struct CustomViewSaved: View {
             
             ForEach (data) {items in
                 ForEach (0 ..< 2) {item in
-                    CollectionViewCell (data: items)
+                    CollectionView (data: [.init(id: "0", imageName: "capa1")])
                 }
             }
         }

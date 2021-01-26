@@ -1,5 +1,5 @@
 //
-//  CollectionViewCell.swift
+//  CollectionView.swift
 //  All-Indie-SwiftUI
 //
 //  Created by Rebeca Pacheco on 25/01/21.
