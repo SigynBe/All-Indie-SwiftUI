@@ -69,6 +69,7 @@ struct CustomView: View {
         
         
     }
+    
 }
 
 struct CustomView_Previews: PreviewProvider {
