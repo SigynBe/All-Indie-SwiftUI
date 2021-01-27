@@ -34,6 +34,6 @@ struct ComicView: View {
 
 struct ComicView_Previews: PreviewProvider {
     static var previews: some View {
-        ComicView(comic: .init(id: "0", imageName: "capa1"))
+        ComicView(comic: .init(id: "L: Hacker", imageName: "capa1"))
     }
 }

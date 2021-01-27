@@ -10,6 +10,7 @@ import SwiftUI
 struct CollectionView: View {
     
     @ObservedObject var comicVM : ComicViewModel
+    
     private let deviceWidth = UIScreen.main.bounds.width
     
     var body: some View {
