@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct DataModel: Identifiable {
+struct Comic: Identifiable {
     let id: String
     let imageName: String
  
