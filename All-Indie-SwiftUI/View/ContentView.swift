@@ -36,9 +36,12 @@ struct ContentView: View {
                         }
                     }.padding()
                     
+                    
                     NotificationView()
                         .frame(height: notificationViewOpen ? 400 : 0)
-                        .isHidden(!notificationViewOpen)
+                        .isHidden(!notificationViewOpen).overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black,lineWidth: 1.5))
+                    
+                    Spacer().frame(height: 30)
                     
                     VStack(spacing: 0){
                         VStack{
@@ -46,7 +49,7 @@ struct ContentView: View {
                                 .resizable()
                                 .frame(height: 485, alignment: .center)
                                 .aspectRatio(contentMode: .fit)
-
+                            
                             Spacer()
                             
                             CustomView()
@@ -65,7 +68,7 @@ struct ContentView: View {
                     VStack{
                         CollectionView(data: [.init(id: "0", imageName: "capa1"),.init(id: "0", imageName: "capa1"),.init(id: "0", imageName: "capa1")
                         ])
-                       
+                        
                     }
                     
                     
