@@ -10,6 +10,7 @@ import SwiftUI
 struct CustomView: View {
     
     var comic : Comic
+    var socorro = "socorro"
     
     init(comic : Comic) {
         self.comic = comic
@@ -46,7 +47,7 @@ struct CustomView: View {
                 HStack{
                     Spacer()
                         .frame(width: 20)
-                    Text("Um amor assassino")
+                    Text(comic.id)
                         .font(.custom("Comic Book", size: 26))
 
                     Spacer()
