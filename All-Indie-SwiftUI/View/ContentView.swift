@@ -36,8 +36,8 @@ struct ContentView: View {
                         }
                     }.padding()
                     
-                    CustomView()
-                        .frame(height: notificationViewOpen ? 250 : 0)
+                    NotificationView()
+                        .frame(height: notificationViewOpen ? 400 : 0)
                         .isHidden(!notificationViewOpen)
                     
                     VStack(spacing: 0){
@@ -46,7 +46,7 @@ struct ContentView: View {
                                 .resizable()
                                 .frame(height: 485, alignment: .center)
                                 .aspectRatio(contentMode: .fit)
-                            //                                .padding(0)
+
                             Spacer()
                             
                             CustomView()

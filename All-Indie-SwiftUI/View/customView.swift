@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CustomView: View {
+    @State var notificationDropView = false
+    
     var body: some View {
         ZStack{
             
@@ -42,9 +44,9 @@ struct CustomView: View {
                         .frame(width: 20)
                     Text("Um amor assassino")
                         .font(.custom("Comic Book", size: 26))
-
+                    
                     Spacer()
-
+                    
                 }
                 HStack{
                     Spacer()
@@ -55,17 +57,30 @@ struct CustomView: View {
                 HStack{
                     Spacer()
                         .frame(width: 20)
-                    Text("Um assassino percorrre a Europa...")
+                    Text("Um assassino percorrre a Europa")
+                    
+                    Button(action: {
+                        withAnimation{
+                            self.notificationDropView = !self.notificationDropView
+                        }
+                    }){
+                        Text("ver mais")
+                            .foregroundColor(Color(UIColor(red: 0.38, green: 0.37, blue: 0.34, alpha: 1.00)
+                            ))
+                    }
+                    
+                        
+
                     Spacer()
                 }
                 Spacer()
                     .frame(width: 20, height: 80)
             }
             .border(Color.black)
-
             
             
-            }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealWidth: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, maxWidth: 500, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, maxHeight: 167, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            
+        }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealWidth: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, maxWidth: 500, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, maxHeight: 167, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
         
         
     }
@@ -74,7 +89,6 @@ struct CustomView: View {
 
 struct CustomView_Previews: PreviewProvider {
     static var previews: some View {
-       // CustomView().previewDevice(PreviewDevice(rawValue: "iPhone 11"))
         CustomView().previewLayout(.sizeThatFits)
     }
 }
