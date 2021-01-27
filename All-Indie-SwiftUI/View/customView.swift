@@ -8,17 +8,22 @@
 import SwiftUI
 
 struct CustomView: View {
-    @State var notificationDropView = false
+    
+    var comic : Comic
+    
+    init(comic : Comic) {
+        self.comic = comic
+    }
     
     var body: some View {
-        ZStack{
-            
+        ZStack {
             Color(red: 1.00, green: 0.99, blue: 0.91, opacity: 1.00)
                 .ignoresSafeArea()
             
             VStack{
                 Spacer()
                     .frame(width: 20, height: 12)
+                
                 HStack(spacing: 20){
                     Spacer()
                         .frame(width: 0)
@@ -33,7 +38,6 @@ struct CustomView: View {
                     }
                     
                     Spacer()
-                    
                 }
                 
                 Spacer()
@@ -44,9 +48,9 @@ struct CustomView: View {
                         .frame(width: 20)
                     Text("Um amor assassino")
                         .font(.custom("Comic Book", size: 26))
-                    
+
                     Spacer()
-                    
+
                 }
                 HStack{
                     Spacer()
@@ -57,38 +61,22 @@ struct CustomView: View {
                 HStack{
                     Spacer()
                         .frame(width: 20)
-                    Text("Um assassino percorrre a Europa")
-                    
-                    Button(action: {
-                        withAnimation{
-                            self.notificationDropView = !self.notificationDropView
-                        }
-                    }){
-                        Text("ver mais")
-                            .foregroundColor(Color(UIColor(red: 0.38, green: 0.37, blue: 0.34, alpha: 1.00)
-                            ))
-                    }
-                    
-                        
-
+                    Text("Um assassino percorrre a Europa...")
                     Spacer()
                 }
                 Spacer()
                     .frame(width: 20, height: 80)
             }
             .border(Color.black)
+ 
             
-            
-            
-        }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealWidth: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, maxWidth: 500, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, maxHeight: 167, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-        
-        
+            }.frame(minWidth: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealWidth: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, maxWidth: 500, minHeight: /*@START_MENU_TOKEN@*/0/*@END_MENU_TOKEN@*/, idealHeight: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/, maxHeight: 167, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
     }
-    
 }
 
 struct CustomView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomView().previewLayout(.sizeThatFits)
+       // CustomView().previewDevice(PreviewDevice(rawValue: "iPhone 11"))
+        CustomView(comic: .init(id: "1", imageName: "image1")).previewLayout(.sizeThatFits)
     }
 }
