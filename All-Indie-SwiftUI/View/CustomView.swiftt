@@ -10,7 +10,6 @@ import SwiftUI
 struct CustomView: View {
     
     var comic : Comic
-    var socorro = "socorro"
     
     init(comic : Comic) {
         self.comic = comic
