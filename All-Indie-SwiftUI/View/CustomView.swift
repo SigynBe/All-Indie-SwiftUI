@@ -46,7 +46,7 @@ struct CustomView: View {
                 HStack{
                     Spacer()
                         .frame(width: 20)
-                    Text(comic.id)
+                    Text(comic.title)
                         .font(.custom("Comic Book", size: 26))
 
                     Spacer()
@@ -55,13 +55,13 @@ struct CustomView: View {
                 HStack{
                     Spacer()
                         .frame(width: 20)
-                    Text("by James Robinson Phil Elliott")
+                    Text(comic.author)
                     Spacer()
                 }
                 HStack{
                     Spacer()
                         .frame(width: 20)
-                    Text("Um assassino percorrre a Europa...")
+                    Text(comic.description)
                     Spacer()
                 }
                 Spacer()

@@ -169,7 +169,6 @@ class CloudRepository {
     }
     
     private func recordToComic(record: CKRecord) -> Comic {
-        print(record.allKeys())
         let file = record["cover"] as! CKAsset
         
         

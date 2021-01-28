@@ -16,7 +16,7 @@ class ComicViewModel : ObservableObject {
     @Published var savedComics : [Comic]! {
         didSet {
             print("did set porra")
-            print(self)
+            print(self.savedComics)
         }
     }
     
