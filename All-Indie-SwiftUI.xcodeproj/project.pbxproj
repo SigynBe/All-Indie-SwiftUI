@@ -18,6 +18,7 @@
 		6480038A25B5C8AD007585FB /* All_Indie_SwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6480038925B5C8AD007585FB /* All_Indie_SwiftUIUITests.swift */; };
 		64B559D125BEED22001231F1 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B559D025BEED22001231F1 /* CollectionView.swift */; };
 		64B559D625BEF0E2001231F1 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B559D525BEF0E2001231F1 /* Comic.swift */; };
+		AE7F15AB25C2703B0081FE38 /* ComicRecommender.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D6EE559E25C1C6A80027BE13 /* ComicRecommender.mlmodel */; };
 		AE9F0E5A25C1A064003A1396 /* ComicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F0E5925C1A064003A1396 /* ComicViewModel.swift */; };
 		AE9F0E6525C1A0E2003A1396 /* ComicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F0E6425C1A0E2003A1396 /* ComicView.swift */; };
 		AE9F0E7825C1A240003A1396 /* ComicGridCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F0E7725C1A240003A1396 /* ComicGridCellView.swift */; };
@@ -30,7 +31,7 @@
 		D6EE558325C1B8FA0027BE13 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE558225C1B8FA0027BE13 /* CustomView.swift */; };
 		D6EE558825C1C3BA0027BE13 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE558725C1C3BA0027BE13 /* User.swift */; };
 		D6EE559525C1C68C0027BE13 /* CloudRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE559425C1C68C0027BE13 /* CloudRepository.swift */; };
-		D6EE55A025C1C6A80027BE13 /* MLService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE559F25C1C6A80027BE13 /* MLService.swift */; };
+		D6EE55A025C1C6A80027BE13 /* MLRecommender.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE559F25C1C6A80027BE13 /* MLRecommender.swift */; };
 		D6EE55A125C1C6A80027BE13 /* UserNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6EE559D25C1C6A80027BE13 /* UserNotificationService.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,7 +84,7 @@
 		D6EE559425C1C68C0027BE13 /* CloudRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudRepository.swift; sourceTree = "<group>"; };
 		D6EE559D25C1C6A80027BE13 /* UserNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNotificationService.swift; sourceTree = "<group>"; };
 		D6EE559E25C1C6A80027BE13 /* ComicRecommender.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = ComicRecommender.mlmodel; sourceTree = "<group>"; };
-		D6EE559F25C1C6A80027BE13 /* MLService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLService.swift; sourceTree = "<group>"; };
+		D6EE559F25C1C6A80027BE13 /* MLRecommender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLRecommender.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,7 +232,7 @@
 		D6EE559C25C1C69F0027BE13 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				D6EE559F25C1C6A80027BE13 /* MLService.swift */,
+				D6EE559F25C1C6A80027BE13 /* MLRecommender.swift */,
 				D6EE559D25C1C6A80027BE13 /* UserNotificationService.swift */,
 			);
 			path = Services;
@@ -371,8 +372,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE7F15AB25C2703B0081FE38 /* ComicRecommender.mlmodel in Sources */,
 				D6EE558825C1C3BA0027BE13 /* User.swift in Sources */,
-				D6EE55A025C1C6A80027BE13 /* MLService.swift in Sources */,
+				D6EE55A025C1C6A80027BE13 /* MLRecommender.swift in Sources */,
 				D6EE559525C1C68C0027BE13 /* CloudRepository.swift in Sources */,
 				64B559D625BEF0E2001231F1 /* Comic.swift in Sources */,
 				AE9F0E5A25C1A064003A1396 /* ComicViewModel.swift in Sources */,

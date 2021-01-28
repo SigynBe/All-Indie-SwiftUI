@@ -13,15 +13,15 @@ import CloudKit
 // Ta tudo salvando na default, pq eu to fazendo uns testes
 class CloudRepository {
     
-    let privateDataBase = CKContainer.init(identifier: "iCloud.com.dailycomics.HQChallenge").privateCloudDatabase
-    let publicDatabase = CKContainer.init(identifier: "iCloud.com.dailycomics.HQChallenge").publicCloudDatabase
+    private let privateDataBase = CKContainer.init(identifier: "iCloud.com.dailycomics.HQChallenge").privateCloudDatabase
+    private let publicDatabase = CKContainer.init(identifier: "iCloud.com.dailycomics.HQChallenge").publicCloudDatabase
     
-    let savedComic = "savedComic"
-    let excludedComic = "excludedComic"
+    private let savedComic = "savedComic"
+    private let excludedComic = "excludedComic"
     
-    let recordType = "Comic"
+    private let recordType = "Comic"
     
-    var data : [Comic] = []
+    private var data : [Comic] = []
     
     func fetchFormatedData() -> [String] {
         var formatedData : [String] = []
@@ -168,11 +168,11 @@ class CloudRepository {
         
     }
     
-    private func recordToComic(record: CKRecord) -> Comic{
+    private func recordToComic(record: CKRecord) -> Comic {
         let file = record["cover"] as! CKAsset
         let data = NSData(contentsOf: file.fileURL!)
         
-        let comic = Comic()
+        var comic = Comic(id: UUID().uuidString)
         
         comic.title = record["title"] as! String
         comic.rating = record["rating"] as! Double
@@ -183,7 +183,6 @@ class CloudRepository {
         comic.isSaved = record["isSaved"] as! Int != 0
         
         return comic
-        
     }
 
    /* func saveData(comic: Comic, completion: @escaping (Comic?) -> ()) {

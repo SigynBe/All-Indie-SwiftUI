@@ -74,9 +74,9 @@ struct CustomView: View {
     }
 }
 
-struct CustomView_Previews: PreviewProvider {
+/*struct CustomView_Previews: PreviewProvider {
     static var previews: some View {
        // CustomView().previewDevice(PreviewDevice(rawValue: "iPhone 11"))
         CustomView(comic: .init(id: "1", imageName: "image1")).previewLayout(.sizeThatFits)
     }
-}
+}*/

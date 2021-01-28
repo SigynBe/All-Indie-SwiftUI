@@ -18,7 +18,7 @@ struct ComicView: View {
     var body: some View {
         VStack(spacing: 0) {
             VStack {
-                Image(comic.imageName)
+                Image(uiImage: comic.cover!)
                     .resizable()
                     .frame(height: 485, alignment: .center)
                     .aspectRatio(contentMode: .fit)
@@ -32,8 +32,8 @@ struct ComicView: View {
         .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black,lineWidth: 1.5))    }
 }
 
-struct ComicView_Previews: PreviewProvider {
+/*struct ComicView_Previews: PreviewProvider {
     static var previews: some View {
-        ComicView(comic: .init(id: "L: Hacker", imageName: "capa1"))
+        ComicView(comic: .)
     }
-}
+}*/

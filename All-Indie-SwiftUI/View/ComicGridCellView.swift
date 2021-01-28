@@ -15,7 +15,7 @@ struct ComicGridCellView: View {
     }
     
     var body: some View {
-        Image(comic.imageName)
+        Image(uiImage: comic.cover!)
             .resizable()
             .aspectRatio(contentMode: .fit)
             .cornerRadius(20)
@@ -25,8 +25,8 @@ struct ComicGridCellView: View {
     }
 }
 
-struct ComicGridCellView_Previews: PreviewProvider {
+/*struct ComicGridCellView_Previews: PreviewProvider {
     static var previews: some View {
         ComicGridCellView(comic: .init(id: "0", imageName: "capa1"))
     }
-}
+}*/

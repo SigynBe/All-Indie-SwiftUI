@@ -25,8 +25,8 @@ struct CollectionView: View {
                                 GridItem(.flexible(minimum: 0, maximum: deviceWidth / 2.1)),
                                 GridItem(.flexible(minimum: 0, maximum: deviceWidth / 2.1))]
                     ) {
-                        ForEach(0..<comicVM.comics.count) { index in
-                            ComicGridCellView(comic: comicVM.comics[index]).onTapGesture {
+                        ForEach(0..<comicVM.savedComics.count) { index in
+                            ComicGridCellView(comic: comicVM.savedComics[index]).onTapGesture {
                                 comicVM.set(newSelectedComicOfIndex: index)
                             }
                         }
@@ -48,8 +48,8 @@ struct CollectionView: View {
 }
 
 
-struct CollectionView_Previews: PreviewProvider {
+/*struct CollectionView_Previews: PreviewProvider {
     static var previews: some View {
         CollectionView(comicVM: .init())
     }
-}
+}*/

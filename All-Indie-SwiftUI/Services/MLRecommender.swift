@@ -8,8 +8,8 @@
 
 import Foundation
 
-class MLService {
-    func getRecommendation(user : User) -> String {
+class MLRecommender {
+    func getRecommendation(for user : User) -> String {
         let recommender = ComicRecommender()
         
         let ratings : [String: Double] = user.getRatedComics()

@@ -17,7 +17,4 @@ struct Comic: Identifiable {
     var cover : UIImage?
     var isLiked : Bool = false
     var isSaved : Bool = false
- 
 }
-
-
