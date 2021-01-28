@@ -82,6 +82,8 @@ class CloudRepository {
         
         privateDataBase.perform(query,inZoneWith: .default /*inZoneWith: customZone.zoneID*/) { records, error in
             var comics : [Comic] = []
+            print("records")
+            print(records)
             for record in records! {
                 comics.append(self.recordToComic(record:record))
             }
@@ -91,7 +93,7 @@ class CloudRepository {
         }
     }
     
-    func fetchDataa(completion: @escaping ([Comic]?,String?) -> ()) {
+    func fetchData(completion: @escaping ([Comic]?,String?) -> ()) {
         let query = CKQuery(recordType: recordType, predicate: NSPredicate(value: true))
          
         publicDatabase.perform(query, inZoneWith: .default) { (records, error) in

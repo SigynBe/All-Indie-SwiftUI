@@ -13,12 +13,7 @@ import UIKit
 class ComicViewModel : ObservableObject {
     
     @Published var selectedComic : Comic!
-    @Published var savedComics : [Comic]! {
-        didSet {
-            print("did set porra")
-            print(self.savedComics)
-        }
-    }
+    @Published var savedComics : [Comic]! 
     
     private var repository : CloudRepository!
     private var recommenderModel : MLRecommender!
@@ -31,7 +26,7 @@ class ComicViewModel : ObservableObject {
         self.selectedComic = .init(id: "dsafd", title: "fasjhdgfj", rating: 1.0, author: "dsfahsgdj", description: "dsahjfghjsdghjf", cover: UIImage(named: "capa1"), isLiked: true, isSaved: true)
         self.savedComics = []
         
-        repository.fetchDataa { (comics, errorMessage) in // lembrar de mudar de volta pro fetchSavedComicsß
+        repository.fetchSavedComics { (comics, errorMessage) in // lembrar de mudar de volta pro fetchSavedComicsß
             if let message = errorMessage {
                 DispatchQueue.main.async {
                     print(message)
