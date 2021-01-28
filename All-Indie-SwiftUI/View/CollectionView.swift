@@ -25,9 +25,9 @@ struct CollectionView: View {
                                 GridItem(.flexible(minimum: 0, maximum: deviceWidth / 2.1)),
                                 GridItem(.flexible(minimum: 0, maximum: deviceWidth / 2.1))]
                     ) {
-                        ForEach(0..<comicVM.savedComics.count) { index in
-                            ComicGridCellView(comic: comicVM.savedComics[index]).onTapGesture {
-                                comicVM.set(newSelectedComicOfIndex: index)
+                        ForEach(comicVM.savedComics, id: \.id) { comic in
+                            ComicGridCellView(comic: comic).onTapGesture {
+                                comicVM.set(selectedComic : comic)
                             }
                         }
                     }

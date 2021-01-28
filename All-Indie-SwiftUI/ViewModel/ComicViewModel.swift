@@ -60,7 +60,7 @@ class ComicViewModel : ObservableObject {
         self.selectedComic = savedComics[index]
     }
     
-    private func set(selectedComic : Comic) {
+    func set(selectedComic : Comic) {
         self.selectedComic = selectedComic
     }
 }
