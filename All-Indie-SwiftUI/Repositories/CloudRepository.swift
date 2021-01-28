@@ -169,7 +169,10 @@ class CloudRepository {
     }
     
     private func recordToComic(record: CKRecord) -> Comic {
+        print(record.allKeys())
         let file = record["cover"] as! CKAsset
+        
+        
         let data = NSData(contentsOf: file.fileURL!)
         
         var comic = Comic(id: UUID().uuidString)

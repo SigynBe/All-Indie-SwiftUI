@@ -18,6 +18,7 @@
 		6480038A25B5C8AD007585FB /* All_Indie_SwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6480038925B5C8AD007585FB /* All_Indie_SwiftUIUITests.swift */; };
 		64B559D125BEED22001231F1 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B559D025BEED22001231F1 /* CollectionView.swift */; };
 		64B559D625BEF0E2001231F1 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B559D525BEF0E2001231F1 /* Comic.swift */; };
+		64CEE4A125C2E55D006518A1 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64CEE4A025C2E55D006518A1 /* CloudKit.framework */; };
 		AE7F15AB25C2703B0081FE38 /* ComicRecommender.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D6EE559E25C1C6A80027BE13 /* ComicRecommender.mlmodel */; };
 		AE9F0E5A25C1A064003A1396 /* ComicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F0E5925C1A064003A1396 /* ComicViewModel.swift */; };
 		AE9F0E6525C1A0E2003A1396 /* ComicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE9F0E6425C1A0E2003A1396 /* ComicView.swift */; };
@@ -70,6 +71,8 @@
 		6480038B25B5C8AD007585FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64B559D025BEED22001231F1 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		64B559D525BEF0E2001231F1 /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
+		64CEE49B25C2E537006518A1 /* All-Indie-SwiftUI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "All-Indie-SwiftUI.entitlements"; sourceTree = "<group>"; };
+		64CEE4A025C2E55D006518A1 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		AE9F0E5925C1A064003A1396 /* ComicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicViewModel.swift; sourceTree = "<group>"; };
 		AE9F0E6425C1A0E2003A1396 /* ComicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicView.swift; sourceTree = "<group>"; };
 		AE9F0E7725C1A240003A1396 /* ComicGridCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComicGridCellView.swift; sourceTree = "<group>"; };
@@ -92,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64CEE4A125C2E55D006518A1 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +124,7 @@
 				6480037D25B5C8AD007585FB /* All-Indie-SwiftUITests */,
 				6480038825B5C8AD007585FB /* All-Indie-SwiftUIUITests */,
 				6480036225B5C8A4007585FB /* Products */,
+				64CEE49F25C2E55D006518A1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -136,6 +141,7 @@
 		6480036325B5C8A4007585FB /* All-Indie-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				64CEE49B25C2E537006518A1 /* All-Indie-SwiftUI.entitlements */,
 				D6EE559C25C1C69F0027BE13 /* Services */,
 				D6EE559325C1C67C0027BE13 /* Repositories */,
 				AE9F0E5825C1A053003A1396 /* ViewModel */,
@@ -176,6 +182,14 @@
 				6480038B25B5C8AD007585FB /* Info.plist */,
 			);
 			path = "All-Indie-SwiftUIUITests";
+			sourceTree = "<group>";
+		};
+		64CEE49F25C2E55D006518A1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				64CEE4A025C2E55D006518A1 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		64D9B6AF25B9BE1700F534AF /* View */ = {
@@ -556,6 +570,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "All-Indie-SwiftUI/All-Indie-SwiftUI.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"All-Indie-SwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 42ZN9N6G82;
@@ -577,6 +592,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "All-Indie-SwiftUI/All-Indie-SwiftUI.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"All-Indie-SwiftUI/Preview Content\"";
 				DEVELOPMENT_TEAM = 42ZN9N6G82;
