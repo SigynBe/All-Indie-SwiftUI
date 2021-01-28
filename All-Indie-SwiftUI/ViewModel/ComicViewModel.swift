@@ -13,7 +13,12 @@ import UIKit
 class ComicViewModel : ObservableObject {
     
     @Published var selectedComic : Comic!
-    @Published var savedComics : [Comic]!
+    @Published var savedComics : [Comic]! {
+        didSet {
+            print("did set porra")
+            print(self)
+        }
+    }
     
     private var repository : CloudRepository!
     private var recommenderModel : MLRecommender!
@@ -26,28 +31,23 @@ class ComicViewModel : ObservableObject {
         self.selectedComic = .init(id: "dsafd", title: "fasjhdgfj", rating: 1.0, author: "dsfahsgdj", description: "dsahjfghjsdghjf", cover: UIImage(named: "capa1"), isLiked: true, isSaved: true)
         self.savedComics = []
         
-        repository.fetchDataa { (comics, errorMessage) in
+        repository.fetchDataa { (comics, errorMessage) in // lembrar de mudar de volta pro fetchSavedComicsß
             if let message = errorMessage {
                 DispatchQueue.main.async {
                     print(message)
                 }
             } else {
-                DispatchQueue.main.async {
-                    self.savedComics = comics ?? []
-                    let recommendationTitle = self.recommenderModel.getRecommendation(for: self.user)
-                    print("A recomendação é \(recommendationTitle)")
-                    
-                    self.repository.getComic(title: recommendationTitle) { comic,message in // pelo amor de deus vamo mudar isso pra pelo menos devolver um Result, dps a gente passa pra Combine essa porra
-                        DispatchQueue.main.async {
-                            if let message = errorMessage {
-                                DispatchQueue.main.async {
-                                    print(message)
-                                }
-                            } else {
-                                self.set(selectedComic: comic!)
-                                self.user.actualRecommendedComic = comic!
-                                self.savedComics = comics ?? []
-                            }
+                let recommendationTitle = self.recommenderModel.getRecommendation(for: self.user)
+                print("A recomendação é \(recommendationTitle)")
+                
+                self.repository.getComic(title: recommendationTitle) { comic,message in // pelo amor de deus vamo mudar isso pra pelo menos devolver um Result, dps a gente passa pra Combine essa porra
+                    DispatchQueue.main.async {
+                        if let message = errorMessage {
+                            print(message)
+                        } else {
+                            self.set(selectedComic: comic!)
+                            self.user.actualRecommendedComic = comic!
+                            self.savedComics = comics ?? []
                         }
                     }
                 }
