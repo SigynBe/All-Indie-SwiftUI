@@ -50,6 +50,16 @@ class ComicViewModel : ObservableObject {
         }
     }
     
+    func saveComic(comicSave: Comic){
+        repository.saveComic(comic: comicSave) { (comic, errorMenssager) in
+        print(comic)
+            DispatchQueue.main.async {
+                self.savedComics.append(comic!)
+            }
+            
+        }
+    }
+    
     // vamo ver qual das duas a gente muda
     func set(newSelectedComicOfIndex index : Int) {
         self.selectedComic = savedComics[index]

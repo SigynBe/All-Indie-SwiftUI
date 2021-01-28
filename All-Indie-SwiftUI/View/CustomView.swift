@@ -9,10 +9,12 @@ import SwiftUI
 
 struct CustomView: View {
     
+    @ObservedObject var comicVM : ComicViewModel
     var comic : Comic
     
-    init(comic : Comic) {
+    init(comic : Comic, comicVM: ComicViewModel) {
         self.comic = comic
+        self.comicVM = comicVM
     }
     
     var body: some View {
@@ -30,7 +32,7 @@ struct CustomView: View {
                     Button(action: {print("button tapped")}) {
                         Image("like").font(.system(size: 30)).foregroundColor(.black)
                     }
-                    Button(action: {print("button tapped")}) {
+                    Button(action: {comicVM.saveComic(comicSave: comic)}) {
                         Image("save").font(.system(size: 30)).foregroundColor(.black)
                     }
                     Button(action: {print("button tapped")}) {

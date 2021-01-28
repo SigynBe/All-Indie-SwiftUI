@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct ComicView: View {
-    
+    @ObservedObject var comicVM : ComicViewModel
     var comic : Comic
     
-    init(comic: Comic) {
+    init(comic: Comic, comicVM: ComicViewModel) {
         self.comic = comic
+        self.comicVM = comicVM
     }
     
     var body: some View {
@@ -23,7 +24,7 @@ struct ComicView: View {
                     .frame(height: 485, alignment: .center)
                     .aspectRatio(contentMode: .fit)
 
-                CustomView(comic: comic)
+                CustomView(comic: comic, comicVM: comicVM)
                     .padding(0)
             }
             

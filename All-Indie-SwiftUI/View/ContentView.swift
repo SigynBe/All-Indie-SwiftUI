@@ -35,7 +35,7 @@ struct ContentView: View {
                         .isHidden(!notificationViewOpen).overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black,lineWidth: 1.5))
                     
                     Spacer().frame(height: 30)
-                                        ComicView(comic: comicVM.selectedComic)
+                    ComicView(comic: comicVM.selectedComic, comicVM: comicVM)
                     .cornerRadius(20)
                     .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black,lineWidth: 1.5))
                     
