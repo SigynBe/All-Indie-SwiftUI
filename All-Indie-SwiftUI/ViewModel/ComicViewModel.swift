@@ -8,22 +8,19 @@
 import Foundation
 import UIKit
 
-// eu acho que vamos ter que quebrar essa view model em duas, uma view model pro user, e outra só pra comic, pq tá tudo uma zona nessa porra
-
 class ComicViewModel : ObservableObject {
 
     @Published var savedComics : [Comic]! = []
     @Published var notificationViewIsOpen = false
     @Published var selectedComic : Comic = .init(id: "1", title: "Hackermann", rating: 1.0, author: "Hazelous", description: "Léo é brabo demais mlk", cover: UIImage(named: "capa1"), isLiked: true, isSaved: true)
     
-    private var repository : CloudRepository!
-    private var recommenderModel : MLRecommender!
-    private var user : User = User() // eu n sei pq, mas eu instanciava o user na tora msm lá no app antigo, sabe deus como aquilo funcionava
+    private var repository : CloudRepository
+    private var recommenderModel : MLRecommender
+    private var user : User = User()
     
     init(repository : CloudRepository, recommenderModel : MLRecommender) {
         self.repository = repository
         self.recommenderModel = recommenderModel
-        /*self.selectedComic = .init(id: "1", title: "Hackermann", rating: 1.0, author: "Hazelous", description: "Léo é brabo demais mlk", cover: UIImage(named: "capa1"), isLiked: true, isSaved: true)*/
         
         repository.fetchSavedComics { (comics, errorMessage) in // lembrar de mudar de volta pro fetchSavedComicsß
             if let message = errorMessage {
@@ -53,8 +50,6 @@ class ComicViewModel : ObservableObject {
         selectedComic.rating += selectedComic.isLiked ? 2.5 : -2.5
         
         if selectedComic.isSaved {
-            print("ta salvo e likado")
-            print("antes do edit")
             repository.editComic(comic: self.selectedComic) { comic,errorMessage  in
                 if let error = errorMessage {
                     DispatchQueue.main.async {

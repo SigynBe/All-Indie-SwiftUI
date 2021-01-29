@@ -8,23 +8,18 @@
 import SwiftUI
 
 struct ComicView: View {
+   
     @ObservedObject var comicVM : ComicViewModel
-    var comic : Comic
-    
-    init(comic: Comic, comicVM: ComicViewModel) {
-        self.comic = comic
-        self.comicVM = comicVM
-    }
-    
+
     var body: some View {
         VStack(spacing: 0) {
             VStack {
-                Image(uiImage: comic.cover!)
+                Image(uiImage: comicVM.selectedComic.cover!)
                     .resizable()
                     .frame(height: 485, alignment: .center)
                     .aspectRatio(contentMode: .fit)
 
-                ComicDetailsView(comic: comic, comicVM: comicVM)
+                ComicDetailsView(comicVM: comicVM)
                     .padding(0)
             }
         }
@@ -32,8 +27,8 @@ struct ComicView: View {
         .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black,lineWidth: 1.5))    }
 }
 
-/*struct ComicView_Previews: PreviewProvider {
+struct ComicView_Previews: PreviewProvider {
     static var previews: some View {
-        ComicView(comic: .)
+        ComicView(comicVM: .init(repository: .init(), recommenderModel: .init()))
     }
-}*/
+}

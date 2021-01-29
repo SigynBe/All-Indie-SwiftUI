@@ -12,10 +12,6 @@ struct NotificationView: View {
     @ObservedObject var notificationVM : NotificationViewModel
 
     private let deviceWidth = UIScreen.main.bounds.width
-    
-    init(notificationVM : NotificationViewModel) {
-        self.notificationVM = notificationVM
-    }
 
     var body: some View {
         ZStack {

@@ -11,7 +11,7 @@ class NotificationViewModel : ObservableObject {
     
     @Published var notificationService : UserNotificationService
     @Published var date = Date()
-    @Published var weekDays : [Day] = [.init(daySymbol:"D", isSelected: false, index: 0),.init(daySymbol:"S", isSelected: false, index: 1),.init(daySymbol:"T", isSelected: false, index: 2),.init(daySymbol:"Q", isSelected: false, index: 3),.init(daySymbol: "Q", isSelected: false, index: 4),.init(daySymbol:"S", isSelected: false, index: 5),.init(daySymbol:"D", isSelected: false, index: 6)] // apaga isso dps
+    @Published var weekDays : [Day] = []
         
     init(notificationService : UserNotificationService) {
         self.notificationService = notificationService
@@ -49,7 +49,7 @@ class NotificationViewModel : ObservableObject {
     }
     
     private func getWeekDays() -> [Day] {
-        /* Esse aqui é o certo, só n to usando pq n dá pra eu testar
+        /* Esse aqui é o certo, só n to usando pq n dá pra testar
          let weekDaysSymbols = Locale.current.calendar.veryShortWeekdaySymbols
         
         var auxWeekDays : [Day] = []

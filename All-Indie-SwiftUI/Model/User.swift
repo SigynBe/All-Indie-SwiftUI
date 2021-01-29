@@ -10,7 +10,7 @@ import Foundation
 
 class User {
     var userID : String = ""
-    var actualRecommendedComic : Comic? 
+    var actualRecommendedComic : Comic!
     var savedComics : [Comic] = []
     var excludedComics : [Comic] = []
     

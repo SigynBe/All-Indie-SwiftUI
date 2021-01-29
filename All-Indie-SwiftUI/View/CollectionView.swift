@@ -47,9 +47,8 @@ struct CollectionView: View {
     }
 }
 
-
-/*struct CollectionView_Previews: PreviewProvider {
+struct CollectionView_Previews: PreviewProvider {
     static var previews: some View {
-        CollectionView(comicVM: .init())
+        CollectionView(comicVM: .init(repository: .init(), recommenderModel: .init()))
     }
-}*/
+}

@@ -148,12 +148,12 @@
 			isa = PBXGroup;
 			children = (
 				64CEE49B25C2E537006518A1 /* All-Indie-SwiftUI.entitlements */,
+				AE1C812725C40B0500D8C917 /* Extensions */,
 				D6EE559C25C1C69F0027BE13 /* Services */,
 				D6EE559325C1C67C0027BE13 /* Repositories */,
 				AE9F0E5825C1A053003A1396 /* ViewModel */,
 				64D9B6B025B9BE2100F534AF /* Model */,
 				64D9B6AF25B9BE1700F534AF /* View */,
-				D6D8A58925C0570E0003785F /* ExtensionView.swift */,
 				6480036425B5C8A4007585FB /* AppDelegate.swift */,
 				6480036625B5C8A4007585FB /* SceneDelegate.swift */,
 				6480037225B5C8AB007585FB /* LaunchScreen.storyboard */,
@@ -221,6 +221,14 @@
 				AE3E2E9A25C3B76100F51389 /* Day.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		AE1C812725C40B0500D8C917 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D6D8A58925C0570E0003785F /* ExtensionView.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		AE9F0E5825C1A053003A1396 /* ViewModel */ = {

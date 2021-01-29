@@ -36,14 +36,13 @@ struct ContentView: View {
                     Spacer()
                         .frame(height: 30)
                     
-                    ComicView(comic: comicVM.selectedComic, comicVM: comicVM)
+                    ComicView(comicVM: comicVM)
                         .cornerRadius(20)
                         .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black,lineWidth: 1.5))
                     
                     Spacer()
                         .frame(height: 30)
                     
-                   
                     CollectionView(comicVM: comicVM)
                 }
             }.padding(.bottom)
