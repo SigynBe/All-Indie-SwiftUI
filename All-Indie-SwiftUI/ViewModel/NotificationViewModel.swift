@@ -38,13 +38,13 @@ class NotificationViewModel : ObservableObject {
     
     func setNotification(onHour hour : Int, andMinute minute : Int) {
         var selectedDaysIndex : [Int] = []
-        // tem que de alguma forma pegar a hora e minuto do date
         for day in weekDays {
             if day.isSelected {
                 selectedDaysIndex.append(day.index)
             }
         }
         
+        // tem que de alguma forma pegar a hora e minuto do date e enviar pra essa função aqui
         self.notificationService.setUserNotification(weekDays : selectedDaysIndex, hour : hour, minute: minute)
     }
     

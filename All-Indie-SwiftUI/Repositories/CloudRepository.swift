@@ -82,8 +82,6 @@ class CloudRepository {
         
         privateDataBase.perform(query,inZoneWith: .default /*inZoneWith: customZone.zoneID*/) { records, error in
             var comics : [Comic] = []
-            print("records")
-            print(records)
             for record in records! {
                 comics.append(self.recordToComic(record:record))
             }
@@ -97,9 +95,6 @@ class CloudRepository {
         let query = CKQuery(recordType: recordType, predicate: NSPredicate(value: true))
          
         publicDatabase.perform(query, inZoneWith: .default) { (records, error) in
-            print("entrou no fetch")
-            print(records)
-            
             var comics : [Comic] = []
             for record in records! {
                 comics.append(self.recordToComic(record:record))
@@ -127,13 +122,7 @@ class CloudRepository {
                     recordToEdit["isSaved"] = comic.isSaved
                     recordToEdit["isLiked"] = comic.isLiked
 
-                    self.privateDataBase.save(recordToEdit) {
-                        returnedRecord, error in
-                        /*if error != nil {
-                            print(error?.localizedDescription as Any)
-                        } else {
-                            print("conseguiu dar update")
-                        }*/
+                    self.privateDataBase.save(recordToEdit) { returnedRecord, error in
                         completion(comic,error?.localizedDescription)
                     }
                 } else {
@@ -151,15 +140,8 @@ class CloudRepository {
 
         privateDataBase.perform(query, inZoneWith: .default/*customZone.zoneID*/) { records, error in
             if records!.count > 0 {
-                
                 let recordToDelete = records?.first!
                 self.privateDataBase.delete(withRecordID: recordToDelete!.recordID) { results, error in
-                    print("entrou no delete")
-                    /*if error != nil {
-                        print(error?.localizedDescription as Any)
-                    } else {
-                        print("deletado")
-                    }*/
                     completion(comic,error?.localizedDescription)
                 }
             }
@@ -172,8 +154,6 @@ class CloudRepository {
     
     private func recordToComic(record: CKRecord) -> Comic {
         let file = record["cover"] as! CKAsset
-        
-        
         let data = NSData(contentsOf: file.fileURL!)
         
         var comic = Comic(id: UUID().uuidString)

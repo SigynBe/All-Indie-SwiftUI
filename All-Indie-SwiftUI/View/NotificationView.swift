@@ -18,7 +18,6 @@ struct NotificationView: View {
     }
 
     var body: some View {
-        
         ZStack {
             Color(red: 1.00, green: 0.99, blue: 0.91, opacity: 1.00)
                 .ignoresSafeArea()

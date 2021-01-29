@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     @ObservedObject var comicVM : ComicViewModel
     
     var body: some View {
@@ -42,9 +43,8 @@ struct ContentView: View {
                     Spacer()
                         .frame(height: 30)
                     
-                   VStack{
-                        CollectionView(comicVM: comicVM)
-                    }
+                   
+                    CollectionView(comicVM: comicVM)
                 }
             }.padding(.bottom)
             .padding(.leading)

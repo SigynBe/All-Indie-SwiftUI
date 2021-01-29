@@ -24,7 +24,7 @@ struct ComicDetailsView: View {
             
             VStack{
                 Spacer()
-                    .frame(width: 20, height: 12)
+                    .frame(width: 20, height: 20)
                 
                 HStack(spacing: 20){
                     Spacer()
@@ -43,7 +43,7 @@ struct ComicDetailsView: View {
                 }
                 
                 Spacer()
-                    .frame(width: 20, height: 20)
+                    .frame(width: 20, height: 10)
                 
                 HStack{
                     Spacer()
@@ -67,7 +67,7 @@ struct ComicDetailsView: View {
                     Spacer()
                 }
                 Spacer()
-                    .frame(width: 20, height: 80)
+                    .frame(width: 20, height: 50)
             }
             .border(Color.black)
  
@@ -76,9 +76,9 @@ struct ComicDetailsView: View {
     }
 }
 
-/*struct CustomView_Previews: PreviewProvider {
+struct ComicDetailsView_Previews: PreviewProvider {
     static var previews: some View {
        // CustomView().previewDevice(PreviewDevice(rawValue: "iPhone 11"))
-        CustomView(comic: .init(id: "1", imageName: "image1")).previewLayout(.sizeThatFits)
+        ComicDetailsView(comic: .init(id: "d", title: "O da primeira capa", rating: 2, author: "Ivanzinho", description: "adsasdasdasdasdasdasdasdas", cover: UIImage(named: "capa1"), isLiked: true, isSaved: true), comicVM: .init(repository: .init(), recommenderModel: .init())).previewLayout(.sizeThatFits)
     }
-}*/
+}

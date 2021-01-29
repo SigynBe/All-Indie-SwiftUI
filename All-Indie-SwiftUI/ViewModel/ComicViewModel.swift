@@ -11,10 +11,10 @@ import UIKit
 // eu acho que vamos ter que quebrar essa view model em duas, uma view model pro user, e outra só pra comic, pq tá tudo uma zona nessa porra
 
 class ComicViewModel : ObservableObject {
-    
-    @Published var selectedComic : Comic!
-    @Published var savedComics : [Comic]!
+
+    @Published var savedComics : [Comic]! = []
     @Published var notificationViewIsOpen = false
+    @Published var selectedComic : Comic = .init(id: "1", title: "Hackermann", rating: 1.0, author: "Hazelous", description: "Léo é brabo demais mlk", cover: UIImage(named: "capa1"), isLiked: true, isSaved: true)
     
     private var repository : CloudRepository!
     private var recommenderModel : MLRecommender!
@@ -23,8 +23,7 @@ class ComicViewModel : ObservableObject {
     init(repository : CloudRepository, recommenderModel : MLRecommender) {
         self.repository = repository
         self.recommenderModel = recommenderModel
-        self.selectedComic = .init(id: "dsafd", title: "fasjhdgfj", rating: 1.0, author: "dsfahsgdj", description: "dsahjfghjsdghjf", cover: UIImage(named: "capa1"), isLiked: true, isSaved: true)
-        self.savedComics = []
+        /*self.selectedComic = .init(id: "1", title: "Hackermann", rating: 1.0, author: "Hazelous", description: "Léo é brabo demais mlk", cover: UIImage(named: "capa1"), isLiked: true, isSaved: true)*/
         
         repository.fetchSavedComics { (comics, errorMessage) in // lembrar de mudar de volta pro fetchSavedComicsß
             if let message = errorMessage {
@@ -33,7 +32,6 @@ class ComicViewModel : ObservableObject {
                 }
             } else {
                 let recommendationTitle = self.recommenderModel.getRecommendation(for: self.user)
-                print("A recomendação é \(recommendationTitle)")
                 
                 self.repository.getComic(title: recommendationTitle) { comic,message in // pelo amor de deus vamo mudar isso pra pelo menos devolver um Result, dps a gente passa pra Combine essa porra
                     DispatchQueue.main.async {
@@ -50,8 +48,60 @@ class ComicViewModel : ObservableObject {
         }
     }
     
+    func likeButtonPressed() {
+        selectedComic.isLiked = !selectedComic.isLiked
+        selectedComic.rating += selectedComic.isLiked ? 2.5 : -2.5
+        
+        if selectedComic.isSaved {
+            print("ta salvo e likado")
+            print("antes do edit")
+            repository.editComic(comic: self.selectedComic) { comic,errorMessage  in
+                if let error = errorMessage {
+                    DispatchQueue.main.async {
+                        print(error)
+                    }
+                }
+            }
+        }
+    }
+    
+    func saveButtonPressed() {
+        selectedComic.isSaved = !selectedComic.isSaved
+        
+        if selectedComic.isSaved {
+            selectedComic.rating += 2.5
+            repository.saveComic(comic: selectedComic) { comic,errorMessage  in
+                if let error = errorMessage {
+                    DispatchQueue.main.async {
+                        print(error)
+                    }
+                }
+            }
+            DispatchQueue.main.async {
+                self.savedComics.append(self.selectedComic)
+            }
+            // salvar o comic na database privada
+        } else {
+            selectedComic.rating -= 2.5
+            repository.removeComic(comic: selectedComic) { comic,errorMessage  in
+                if let error = errorMessage {
+                    DispatchQueue.main.async {
+                        print(error)
+                    }
+                }
+            }
+            
+            DispatchQueue.main.async {
+                self.savedComics.removeAll { $0.title == self.selectedComic.title}
+            }
+            // remover o comic da database privada
+        }
+    }
+    
     func changeNotificationViewState() {
-        notificationViewIsOpen = !notificationViewIsOpen
+        DispatchQueue.main.async {
+            self.notificationViewIsOpen = !self.notificationViewIsOpen
+        }
     }
     
     func saveComic(comicSave: Comic){
@@ -63,6 +113,8 @@ class ComicViewModel : ObservableObject {
     }
     
     func set(selectedComic : Comic) {
-        self.selectedComic = selectedComic
+        DispatchQueue.main.async {
+            self.selectedComic = selectedComic
+        }
     }
 }
