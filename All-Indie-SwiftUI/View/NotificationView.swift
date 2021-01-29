@@ -52,6 +52,8 @@ struct NotificationView: View {
 
 struct NotificationView_Previews: PreviewProvider {
     static var previews: some View {
-        NotificationView(notificationVM: .init(notificationService:.init())).previewLayout(.sizeThatFits)
+        NotificationView(notificationVM: .init(notificationService:.init(notificationCenter: UNUserNotificationCenter.current()))).previewLayout(.sizeThatFits)
     }
 }
+
+

@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @ObservedObject var comicVM : ComicViewModel
+    @ObservedObject var notificationVM : NotificationViewModel
     
     var body: some View {
         ZStack {
@@ -22,16 +23,16 @@ struct ContentView: View {
                         Spacer()
                         Button(action: {
                             withAnimation {
-                                comicVM.changeNotificationViewState()
+                                notificationVM.changeNotificationViewState()
                             }
                         }) {
                             Image(systemName: "bell.fill").font(.system(size: 30)).foregroundColor(.black)
                         }
                     }.padding()
                     
-                    NotificationView(notificationVM : .init(notificationService: .init()))
-                        .frame(height: comicVM.notificationViewIsOpen ? 440 : 0)
-                        .isHidden(!comicVM.notificationViewIsOpen).overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black,lineWidth: 1.5))
+                    NotificationView(notificationVM : notificationVM)
+                        .frame(height: notificationVM.notificationViewIsOpen ? 440 : 0)
+                        .isHidden(!notificationVM.notificationViewIsOpen).overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black,lineWidth: 1.5))
                     
                     Spacer()
                         .frame(height: 30)
@@ -54,6 +55,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(comicVM: .init(repository: .init(), recommenderModel: .init())).previewDevice(PreviewDevice(rawValue: "iPhone 11"))
+        ContentView(comicVM: .init(repository: .init(), recommenderModel: .init()),notificationVM: .init(notificationService: .init(notificationCenter:  UNUserNotificationCenter.current()))).previewDevice(PreviewDevice(rawValue: "iPhone 11"))
     }
 }

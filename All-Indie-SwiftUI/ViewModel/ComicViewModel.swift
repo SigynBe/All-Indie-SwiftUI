@@ -10,9 +10,8 @@ import UIKit
 
 class ComicViewModel : ObservableObject {
 
-    @Published var savedComics : [Comic]! = []
-    @Published var notificationViewIsOpen = false
-    @Published var selectedComic : Comic = .init(id: "1", title: "Hackermann", rating: 1.0, author: "Hazelous", description: "Léo é brabo demais mlk", cover: UIImage(named: "capa1"), isLiked: true, isSaved: true)
+    @Published var savedComics : [Comic] = []
+    @Published var selectedComic = Comic(id: "1", title: "Hackermann", rating: 1.0, author: "Hazelous", description: "Léo é brabo demais mlk", cover: UIImage(named: "capa1"), isLiked: true, isSaved: true)
     
     private var repository : CloudRepository
     private var recommenderModel : MLRecommender
@@ -22,7 +21,7 @@ class ComicViewModel : ObservableObject {
         self.repository = repository
         self.recommenderModel = recommenderModel
         
-        repository.fetchSavedComics { (comics, errorMessage) in // lembrar de mudar de volta pro fetchSavedComicsß
+        repository.fetchSavedComics { (comics, errorMessage) in
             if let message = errorMessage {
                 DispatchQueue.main.async {
                     print(message)
@@ -90,12 +89,6 @@ class ComicViewModel : ObservableObject {
                 self.savedComics.removeAll { $0.title == self.selectedComic.title}
             }
             // remover o comic da database privada
-        }
-    }
-    
-    func changeNotificationViewState() {
-        DispatchQueue.main.async {
-            self.notificationViewIsOpen = !self.notificationViewIsOpen
         }
     }
     

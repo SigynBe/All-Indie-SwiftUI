@@ -11,10 +11,13 @@ import UserNotifications
 
 class UserNotificationService {
     
-    let notificationCenter = UNUserNotificationCenter.current() // botar isso pra ser injetado
+    var notificationCenter : UNUserNotificationCenter
+    
+    init(notificationCenter :  UNUserNotificationCenter) {
+        self.notificationCenter = notificationCenter
+    }
     
     func setUserNotification(weekDays : [Int?], hour : Int?,minute : Int?) {
-        
         let content = UNMutableNotificationContent()
         content.title = "All Indie"
         content.body = "Venha ver a nova recomendação que temos para você!"

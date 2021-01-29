@@ -10,6 +10,7 @@ import Foundation
 class NotificationViewModel : ObservableObject {
     
     @Published var notificationService : UserNotificationService
+    @Published var notificationViewIsOpen = false
     @Published var date = Date()
     @Published var weekDays : [Day] = []
         
@@ -20,6 +21,12 @@ class NotificationViewModel : ObservableObject {
     
     func changeDayState(on index : Int) {
         weekDays[index].isSelected = !weekDays[index].isSelected
+    }
+    
+    func changeNotificationViewState() {
+        DispatchQueue.main.async {
+            self.notificationViewIsOpen = !self.notificationViewIsOpen
+        }
     }
     
     func getNotificationsDaysHoursAndMinutes() {
