@@ -24,10 +24,9 @@ struct ComicView: View {
                     .frame(height: 485, alignment: .center)
                     .aspectRatio(contentMode: .fit)
 
-                CustomView(comic: comic, comicVM: comicVM)
+                ComicDetailsView(comic: comic, comicVM: comicVM)
                     .padding(0)
             }
-            
         }
         .cornerRadius(20)
         .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.black,lineWidth: 1.5))    }

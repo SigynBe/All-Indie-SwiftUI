@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CustomView: View {
+struct ComicDetailsView: View {
     
     @ObservedObject var comicVM : ComicViewModel
     var comic : Comic

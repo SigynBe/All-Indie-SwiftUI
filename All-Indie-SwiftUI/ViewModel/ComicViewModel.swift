@@ -13,12 +13,12 @@ import UIKit
 class ComicViewModel : ObservableObject {
     
     @Published var selectedComic : Comic!
-    @Published var savedComics : [Comic]! 
+    @Published var savedComics : [Comic]!
+    @Published var notificationViewIsOpen = false
     
     private var repository : CloudRepository!
     private var recommenderModel : MLRecommender!
     private var user : User = User() // eu n sei pq, mas eu instanciava o user na tora msm lá no app antigo, sabe deus como aquilo funcionava
-    /*@Published var comics : [Comic] = [.init(id: "L: Hacker", imageName: "capa1"),.init(id: "Jão Wilkson", imageName: "capa2"),.init(id: "The Comrades - volume 1", imageName: "capa3"),.init(id: "The Comrades - volume 2", imageName: "capa4")]*/
     
     init(repository : CloudRepository, recommenderModel : MLRecommender) {
         self.repository = repository
@@ -50,19 +50,16 @@ class ComicViewModel : ObservableObject {
         }
     }
     
+    func changeNotificationViewState() {
+        notificationViewIsOpen = !notificationViewIsOpen
+    }
+    
     func saveComic(comicSave: Comic){
         repository.saveComic(comic: comicSave) { (comic, errorMenssager) in
-        print(comic)
             DispatchQueue.main.async {
                 self.savedComics.append(comic!)
             }
-            
         }
-    }
-    
-    // vamo ver qual das duas a gente muda
-    func set(newSelectedComicOfIndex index : Int) {
-        self.selectedComic = savedComics[index]
     }
     
     func set(selectedComic : Comic) {

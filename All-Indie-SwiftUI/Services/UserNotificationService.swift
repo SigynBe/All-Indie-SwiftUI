@@ -11,9 +11,9 @@ import UserNotifications
 
 class UserNotificationService {
     
-    let notificationCenter = UNUserNotificationCenter.current()
+    let notificationCenter = UNUserNotificationCenter.current() // botar isso pra ser injetado
     
-    func setUserNotification (weekDays : [Int?], hour : Int?,minute : Int?) {
+    func setUserNotification(weekDays : [Int?], hour : Int?,minute : Int?) {
         
         let content = UNMutableNotificationContent()
         content.title = "All Indie"
@@ -28,7 +28,6 @@ class UserNotificationService {
             dateComponents.minute = minute
 
             let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-            // let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
 
             let id = UUID().uuidString
 
@@ -47,6 +46,7 @@ class UserNotificationService {
         var days : [Int] = []
         var hour : Int = 0
         var minute : Int = 0
+        
         notificationCenter.getPendingNotificationRequests(completionHandler: { notifications in
             if !notifications.isEmpty {
                 for notification in notifications {
@@ -61,13 +61,13 @@ class UserNotificationService {
         })
     }
     
-    func getNotifications() {
+    private func getPendingNotifications(completion: @escaping ([UNNotificationRequest]) -> ()) {
         notificationCenter.getPendingNotificationRequests(completionHandler: { notifications in
-            print(notifications)
+            completion(notifications)
         })
     }
     
-    func removeNotifications() {
+    func removeAllPendingNotifications() {
         notificationCenter.removeAllPendingNotificationRequests()
     }
     

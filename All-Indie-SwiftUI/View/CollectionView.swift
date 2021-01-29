@@ -14,8 +14,8 @@ struct CollectionView: View {
     private let deviceWidth = UIScreen.main.bounds.width
     
     var body: some View {
-        ZStack{
-            ZStack{
+        ZStack {
+            ZStack {
                 Color(red: 1.00, green: 0.99, blue: 0.91, opacity: 1.00)
                     .ignoresSafeArea()
                 VStack{
